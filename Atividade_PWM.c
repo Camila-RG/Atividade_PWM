@@ -7,9 +7,9 @@
 #define SERVO 22
 #define LED_B_PIN 12
 
-#define FREQ_PWM 50           // Frequência do PWM para o servo
-#define WRAP_PWM 20000        // Valor máximo do contador PWM
-#define DIV_PWM 125.0         // Divisor de clock do PWM
+#define PWM_FREQUENCY 50        // Frequência do PWM para o servo
+#define PWM_WRAP 20000          // Valor máximo do contador PWM
+#define PWM_DIVISOR 125.0         // Divisor de clock do PWM
 
 #define SERVO_MIN_US 500        // Posição mínima do servo (0°)
 #define SERVO_MID_US 1470       // Posição intermediária do servo (90°)
@@ -22,8 +22,8 @@ void setup_pwm(uint gpio) {
     gpio_set_function(gpio, GPIO_FUNC_PWM);
     uint slice = pwm_gpio_to_slice_num(gpio);
     pwm_config config = pwm_get_default_config();
-    pwm_config_set_clkdiv(&config, DIV_PWM);
-    pwm_config_set_wrap(&config, WRAP_PWM);
+    pwm_config_set_clkdiv(&config, PWM_DIVISOR);
+    pwm_config_set_wrap(&config, PWM_WRAP);
     pwm_init(slice, &config, true);
 }
 
@@ -34,7 +34,7 @@ void set_servo_position(uint level) {
 
 // Converte microsegundos para nível PWM
 uint16_t convert_us_to_pwm_level(uint16_t us) {
-    return (us * WRAP_PWM) / 20000;
+    return (us * PWM_WRAP) / 20000;
 }
 
 // Função para ajustar o brilho do LED com base na posição do servo
@@ -92,8 +92,3 @@ int main()
         move_servo_cycle();
     }
 }
-
-/*Ao utilizar o BitDogLab para visualizar o resultado da atividade, foi possível notar que no LED RGB no GPIO 12,
- a iluminação do LED variando conforme o movimento do servomotor. Isso ocorre 
- porque o ciclo de trabalho do PWM do servo influencia diretamente a intensidade do LED. 
- Quando o servo se move de 0 a 180 graus, o brilho do LED aumenta, e ao retornar, ele diminui.*/
