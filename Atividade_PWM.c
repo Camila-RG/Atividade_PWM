@@ -62,33 +62,31 @@ void move_servo_cycle() {
     }
 }
 
-int main()
-{
+int main() {
     stdio_init_all();
-
     setup_pwm(SERVO); // Inicializa PWM para o servo
     setup_pwm(LED_B_PIN); // Inicializa PWM para o LED
 
-    // Move o servo para 180° e ajusta LED
+    // 1. Mover servo para 180° e ajustar LED
     set_servo_position(convert_us_to_pwm_level(SERVO_MAX_US)); 
     set_led_brightness(SERVO_MAX_US);
-    sleep_ms(5000); 
+    sleep_ms(5000); // Aguarda 5 segundos na posição 180°
 
-    // Move o servo para 90° e ajusta LED
+    // 2. Mover servo para 90° e ajustar LED
     set_servo_position(convert_us_to_pwm_level(SERVO_MID_US)); 
     set_led_brightness(SERVO_MID_US);
     sleep_ms(5000); // Aguarda 5 segundos na posição 90°
 
-    // Move servo para 0° e ajusta LED
+    // 3. Mover servo para 0° e ajustar LED
     set_servo_position(convert_us_to_pwm_level(SERVO_MIN_US)); 
     set_led_brightness(SERVO_MIN_US);
-    sleep_ms(5000);
+    sleep_ms(5000); // Aguarda 5 segundos na posição 0°
 
-    // Executa o movimento cíclico suave do servo e LED
+    // 4. Executa o movimento cíclico suave do servo e LED
     move_servo_cycle();
 
-    // Movimentação periódica do servo entre 0° e 180° com sincronização com o LED
+    // 5. Movimentação periódica do servo entre 0° e 180° com sincronização com o LED
     while (true) {
-        move_servo_cycle();
+        move_servo_cycle(); // Movimenta o servo de 0 a 180° e vice-versa periodicamente
     }
 }
