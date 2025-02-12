@@ -65,7 +65,7 @@ Este repositório apresenta a resolução da Atividade de PWM na U4 do EmbarcaTe
 
 Você pode assistir ao vídeo demonstrativo do projeto clicando no link abaixo:
 
-[Vídeo explicativo do projeto](https://drive.google.com/drive/folders/17X5zJYEerDWW--GPdlOyqcvGP8CdELrt?hl=pt-br)
+[Vídeo explicativo do projeto](https://drive.google.com/file/d/19o9RxhwbGeRnC5m9oO8L5X4MYd-xs9qr/view?usp=sharing)
 
 ## Autor
 
