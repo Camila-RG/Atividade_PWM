@@ -92,3 +92,8 @@ int main()
         move_servo_cycle();
     }
 }
+
+/*Ao utilizar o BitDogLab para visualizar o resultado da atividade, foi possível notar que no LED RGB no GPIO 12,
+ a iluminação do LED variando conforme o movimento do servomotor. Isso ocorre 
+ porque o ciclo de trabalho do PWM do servo influencia diretamente a intensidade do LED. 
+ Quando o servo se move de 0 a 180 graus, o brilho do LED aumenta, e ao retornar, ele diminui.*/
