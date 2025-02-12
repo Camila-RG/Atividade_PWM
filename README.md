@@ -1,6 +1,6 @@
 # Atividade - Controle de Servomotor por PWM
 
-Este repositório apresenta a resolução da Atividade de PWM na U4 do EmbarcaTech, com base na aula síncrona do dia 06/02/25 sobre modulação de largura de pulso (PWM), utilizando o microcontrolador Raspberry Pi Pico  W. O projeto simula o controle de um servomotor, ajustando sua posição por meio do módulo PWM, utilizando a ferramenta Pico SDK no Raspberry Pi Pico. O experimento também inclui uma interação com o LED RGB, utilizando a ferramenta BitDogLab.
+Este repositório apresenta a resolução da Atividade de PWM na U4 do EmbarcaTech, com base na aula síncrona do dia 06/02/25 sobre modulação de largura de pulso (PWM), utilizando o microcontrolador Raspberry Pi Pico  W. O projeto simula o controle de um servomotor, ajustando sua posição por meio do módulo PWM, utilizando a ferramenta Pico SDK no Raspberry Pi Pico W. O experimento também inclui uma interação com o LED RGB, utilizando a ferramenta BitDogLab.
 
 ## Componentes utilizados
 
@@ -50,6 +50,9 @@ Este repositório apresenta a resolução da Atividade de PWM na U4 do EmbarcaTe
 
 4. **Interação com o LED RGB:**
    - Durante o movimento do servomotor, o LED RGB conectado ao GPIO 12 é controlado. O comportamento observado no LED é examinado utilizando a ferramenta BitDogLab.
+
+## Comportamento de iluminação do LED
+- Ao utilizar o BitDogLab para visualizar o resultado da atividade referente ao LED RGB na cor azul(GPIO 12), foi possível notar que a iluminação do LED RGB varia conforme o movimento do servomotor. Isso ocorre porque o ciclo de trabalho do PWM do servo influencia diretamente a intensidade do LED. Quando o servo se move de 0 a 180 graus, o brilho do LED aumenta, e ao retornar, ele diminui.
 
 ## Testes
 
